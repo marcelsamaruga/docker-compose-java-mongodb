@@ -44,36 +44,6 @@ Docker compose
 The docker compose file allows multiple container to run and communicate each other.
 On this example, a MongoDB instance will be created and linked by a Java app.
 
-The docker-compose file should be like:
-
-version: "3"
-       find wooden spoon
-        uncover pot
-        stir
-        cover pot
-        balance wooden spoon precariously on pot handle
-        wait 10 minutes
-        goto first step (or shut off burner when done)
-services:
-
-  mongodb:
-    image: mongo:latest
-    container_name: "mongodb"
-    ports:
-      - 27017:27017
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=root
-  api:
-    depends_on:
-     - mongodb
-    image: java-mongodb
-    ports:
-      - 8090:8090
-    links:
-      - mongodb
-
-
 The MongoDB instance will be hosted at the port 27017 using the user/pwd root. This container will be linked by the Java docker image java-mongodb.
 
 Run the command:
